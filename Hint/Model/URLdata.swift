@@ -8,24 +8,34 @@
 
 import Foundation
 
-struct TasteDiveURL {
-    static let Scheme = "https"
-    static let Host = "tastedive.com"
-    static let Path = "/api/similar"
+struct TMDB {
     
+    struct Properties {
+        static var MovieID = 0
+    }
+    
+    struct URL {
+        static let Scheme = "https"
+        static let Host = "api.themoviedb.org"
+        static let Path = "/3/"
+    }
+    
+    struct Methods {
+        static let Search = "search/movie"
+        static let Recommendations = "movie/\(TMDB.Properties.MovieID)/recommendations"
+    }
+
     struct ParametersKeys {
-        static let query = "q"
-        static let type = "type"
-        static let info = "info"
-        static let limit = "limit"
-        static let APIAccessKey = "k"
+        static let AccessKey = "api_key"
+        static let Language = "language"
+        static let QueryString = "query"
+        static let IncludeAdult = "include_adult"
     }
     
     struct ParametersResponse {
-        static let query = "Harry Potter"
-        static let type = "movies"
-        static let info = "1"
-        static let limit = "20"
-        static let APIAccessKey = "289159-MediaHin-NI7H07UR"
+        static let AccessKey: String = "22cd7ed6d178b3a129678beb19b2a5f8"
+        
     }
+    
+    // Poster path https://image.tmdb.org/t/p/w320
 }

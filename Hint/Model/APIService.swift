@@ -14,43 +14,56 @@ class APIService {
     let session = URLSession.shared
     let decoder = JSONDecoder()
     
-    func getMediaJSON() {
-        
-        let parameters = [
-            TasteDiveURL.ParametersKeys.APIAccessKey : TasteDiveURL.ParametersResponse.APIAccessKey,
-            TasteDiveURL.ParametersKeys.info : TasteDiveURL.ParametersResponse.info,
-            TasteDiveURL.ParametersKeys.limit : TasteDiveURL.ParametersResponse.limit,
-            TasteDiveURL.ParametersKeys.query : TasteDiveURL.ParametersResponse.query,
-            TasteDiveURL.ParametersKeys.type : TasteDiveURL.ParametersResponse.type
-            ] as [String:AnyObject]
-        
-        let url = URLFromParameters(parameters, TasteDiveURL.Scheme, TasteDiveURL.Host, TasteDiveURL.Path)
+    /* JSON data request to TMDB */
+    func TMDBRequest(parameters: [String:AnyObject], url: URL, completion: @escaping (_ error: String?,_ data: TMDBMovieObject?) -> Void) {
         
         session.dataTask(with: url) { (data, response, error) in
             
             guard error == nil else {
-                print("Error returned: \(String(describing: error))")
+                completion(error?.localizedDescription, nil)
                 return
             }
             
             guard let data = data else {
-                print("no data has been returned")
+                completion("An error occurred parsing the data", nil)
                 return
             }
             
             do {
-                let tasteDiveResult  = try self.decoder.decode(TasteDiveObject.self, from: data)
-                
-                print(tasteDiveResult.Similar.Info)
+                let movieObject = try self.decoder.decode(TMDBMovieObject.self, from: data)
+                completion(nil, movieObject)
                 
             } catch let error {
-                print(error)
+                completion(error.localizedDescription, nil)
             }
             
             }.resume()
     }
     
-    /* create a URL from parameters */
+    /* get image data from a provided URL */
+    func getImageData(_ stringURL: String, completion: @escaping (_ imageData: Data?, _ error: String?) -> Void) {
+        
+        guard let url = NSURL(string: stringURL) else {
+            return completion(nil, "Provided URL is invalid.")
+        }
+        
+        let request = URLRequest(url: url as URL)
+        session.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            guard error == nil else {
+                return completion(nil, error?.localizedDescription ?? "Could not get the image data.")
+            }
+            
+            guard let data = data else {
+                return completion(nil, error?.localizedDescription ?? "Invalid image data.")
+            }
+            
+            completion(data, nil)
+            
+            }.resume()
+    }
+    
+    /* create an URL from a provided set of parameters */
     func URLFromParameters(_ parameters: [String:AnyObject]?,_ scheme: String,_ host: String,_ path: String) -> URL {
         
         var components = URLComponents()

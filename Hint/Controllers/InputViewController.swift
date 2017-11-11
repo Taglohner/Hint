@@ -9,16 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let APIservice = APIService.sharedInstance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIService.sharedInstance().getMediaJSON()
+        APIservice.searchMovie(query: "Batman Begins")
         
     }
-
-
-
-
+    
+    
+    
+    
 }
 
