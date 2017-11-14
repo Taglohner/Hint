@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Results: Decodable {
+struct MovieInfo: Decodable {
     let vote_count: Int
     let id: Int
     let vote_average: Float
@@ -19,7 +19,7 @@ struct Results: Decodable {
     let genre_ids: [Int]
     let backdrop_path: String?
     let poster_path: String?
-    let overview: String
+    let overview: String?
     let release_date: String?
 }
 
@@ -27,5 +27,5 @@ struct TMDBMovieObject: Decodable {
     let page: Int
     let total_results: Int
     let total_pages: Int
-    let results: [Results]
+    let results: [MovieInfo]
 }

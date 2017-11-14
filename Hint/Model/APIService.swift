@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
 class APIService {
     
     // MARK: Properties
     let session = URLSession.shared
     let decoder = JSONDecoder()
+    let coreDataStack = AppDelegate.stack
     
     /* JSON data request to TMDB */
     func TMDBRequest(parameters: [String:AnyObject], url: URL, completion: @escaping (_ error: String?,_ data: TMDBMovieObject?) -> Void) {

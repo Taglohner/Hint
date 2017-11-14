@@ -29,7 +29,6 @@ struct TMDB {
         static let AccessKey = "api_key"
         static let Language = "language"
         static let QueryString = "query"
-        static let IncludeAdult = "include_adult"
     }
     
     struct ParametersResponse {

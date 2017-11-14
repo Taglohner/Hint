@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InputViewController: UIViewController {
+    
+    //MARK: Properties
+    
+    @IBOutlet weak var searchStringTextField: UITextField!
+    
     
     let APIservice = APIService.sharedInstance()
     
@@ -19,8 +24,12 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
-    
-    
+    @IBAction func suggestMeButton(_ sender: Any) {
+        
+    }
 }
 
