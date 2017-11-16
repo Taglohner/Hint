@@ -27,16 +27,25 @@ class ResultsTableViewController: CoreDataTableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let movie = fetchedResultsController?.object(at: indexPath) as? Movie, let title = movie.title, let overview = movie.overview, let releaseDate = movie.releaseDate else {
+        
+        guard let movie = fetchedResultsController?.object(at: indexPath) as? Movie, let title = movie.title, let overview = movie.overview, let releaseDate = movie.releaseDate, let coverImage = movie.coverImage else {
             return UITableViewCell()
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
+        
         cell.movieTitle.text = title
         cell.movieOverview.text = overview
         cell.movieReleaseDate.text = releaseDate
+        cell.movieCover.image = UIImage(data: coverImage)
 
         return cell
+    }
+    
+    // MARK: - Table view delegate
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130.0
     }
 
     // MARK: - Navigation

@@ -20,7 +20,7 @@ class InputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIservice.searchMovie(query: "Batman Begins")
+        APIservice.searchMovie(query: "Soldier")
         
     }
     
@@ -30,6 +30,15 @@ class InputViewController: UIViewController {
     
     @IBAction func suggestMeButton(_ sender: Any) {
         
+        performSegue(withIdentifier: "ToResultsViewController", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToResultsViewController" {
+            print("VIEWCONTROLER")
+        }
+    }
+    
+    
 }
 

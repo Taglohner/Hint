@@ -33,8 +33,16 @@ struct TMDB {
     
     struct ParametersResponse {
         static let AccessKey: String = "22cd7ed6d178b3a129678beb19b2a5f8"
-        
     }
     
-    // Poster path https://image.tmdb.org/t/p/w320
+    struct ImageData {
+        
+        struct size {
+            static let small = "w320"
+            static let medium = "w640"
+            static let large = "w1280"
+        }
+        
+        static let mediaPath = "https://image.tmdb.org/t/p/"
+    }
 }

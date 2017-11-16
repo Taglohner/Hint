@@ -43,24 +43,24 @@ class APIService {
     }
     
     /* get image data from a provided URL */
-    func getImageData(_ stringURL: String, completion: @escaping (_ imageData: Data?, _ error: String?) -> Void) {
+    func getImageData(_ stringURL: String, completion: @escaping (_ error: String?,_ imageData: Data?) -> Void) {
         
         guard let url = NSURL(string: stringURL) else {
-            return completion(nil, "Provided URL is invalid.")
+            return completion("Provided URL is invalid.", nil)
         }
         
         let request = URLRequest(url: url as URL)
         session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             guard error == nil else {
-                return completion(nil, error?.localizedDescription ?? "Could not get the image data.")
+                return completion(error?.localizedDescription ?? "Could not get the image data.", nil)
             }
             
             guard let data = data else {
-                return completion(nil, error?.localizedDescription ?? "Invalid image data.")
+                return completion(error?.localizedDescription ?? "Invalid image data.", nil)
             }
             
-            completion(data, nil)
+            completion(nil, data)
             
             }.resume()
     }
