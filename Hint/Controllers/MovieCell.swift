@@ -1,19 +1,17 @@
 //
-//  MovieTableViewCell.swift
+//  MovieCell.swift
 //  Hint
 //
-//  Created by Steven Taglohner on 14/11/2017.
+//  Created by Steven Taglohner on 16/11/2017.
 //  Copyright © 2017 Steven Taglohner. All rights reserved.
 //
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+class MovieCell: UITableViewCell {
     
     //MARK: Properties
-    
-    
-    
+
     @IBOutlet weak var movieCover: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
@@ -39,13 +37,10 @@ class MovieTableViewCell: UITableViewCell {
         movieReleaseDate.textAlignment = .natural
         movieReleaseDate.font = UIFont(name: "Helvetica Neue", size: 16)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-    
-
-
 }

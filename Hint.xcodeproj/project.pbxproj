@@ -26,6 +26,8 @@
 		E7F991FC1FBCF40300B76DE3 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F991FA1FBCF40300B76DE3 /* Movie+CoreDataClass.swift */; };
 		E7F991FD1FBCF40300B76DE3 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F991FB1FBCF40300B76DE3 /* Movie+CoreDataProperties.swift */; };
 		E7F991FF1FBD088400B76DE3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F991FE1FBD088400B76DE3 /* Helpers.swift */; };
+		E7F992021FBE358D00B76DE3 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F992011FBE358D00B76DE3 /* ResultsViewController.swift */; };
+		E7F992041FBE452600B76DE3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F992031FBE452600B76DE3 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		E7F991FA1FBCF40300B76DE3 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E7F991FB1FBCF40300B76DE3 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E7F991FE1FBD088400B76DE3 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		E7F992011FBE358D00B76DE3 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		E7F992031FBE452600B76DE3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,10 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				E7D7AF851FADF7330095CF22 /* InputViewController.swift */,
-				E74058431FB779BA00056C50 /* CoreDataTableViewController.swift */,
-				E735F3711FB78D9600067F86 /* ResultsTableViewController.swift */,
-				E793441B1FBB8E6D00CBBB09 /* MovieTableViewCell.swift */,
+				E7F992031FBE452600B76DE3 /* MovieCell.swift */,
+				E7F992011FBE358D00B76DE3 /* ResultsViewController.swift */,
 				E7F992001FBD088F00B76DE3 /* Helpers */,
+				E7F992051FBE507A00B76DE3 /* Decommissioned */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +203,16 @@
 				E7F991FE1FBD088400B76DE3 /* Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E7F992051FBE507A00B76DE3 /* Decommissioned */ = {
+			isa = PBXGroup;
+			children = (
+				E735F3711FB78D9600067F86 /* ResultsTableViewController.swift */,
+				E74058431FB779BA00056C50 /* CoreDataTableViewController.swift */,
+				E793441B1FBB8E6D00CBBB09 /* MovieTableViewCell.swift */,
+			);
+			path = Decommissioned;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +357,9 @@
 				E7F991FC1FBCF40300B76DE3 /* Movie+CoreDataClass.swift in Sources */,
 				E74058461FB779E300056C50 /* CoreDataStack.swift in Sources */,
 				E74058401FB2615B00056C50 /* TMDBObject.swift in Sources */,
+				E7F992021FBE358D00B76DE3 /* ResultsViewController.swift in Sources */,
 				E75701501FADFE7A0057073D /* URLdata.swift in Sources */,
+				E7F992041FBE452600B76DE3 /* MovieCell.swift in Sources */,
 				E740583E1FB25FC000056C50 /* APIServiceExtension.swift in Sources */,
 				E740584B1FB77F0200056C50 /* HintCoredDataModel.xcdatamodeld in Sources */,
 				E77AD01C1FAE0918002B7E35 /* APIService.swift in Sources */,
