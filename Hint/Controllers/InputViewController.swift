@@ -12,16 +12,12 @@ class InputViewController: UIViewController {
     
     //MARK: Properties
     
-    @IBOutlet weak var searchStringTextField: UITextField!
-    
-    
     let APIservice = APIService.sharedInstance()
+    @IBOutlet weak var searchStringTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         APIservice.searchMovie(query: "Soldier")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,16 +25,14 @@ class InputViewController: UIViewController {
     }
     
     @IBAction func suggestMeButton(_ sender: Any) {
-        
         performSegue(withIdentifier: "ToResultsViewController", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToResultsViewController" {
-            print("VIEWCONTROLER")
+            // PENDING IMPLEMENTATION
         }
     }
-    
     
 }
 

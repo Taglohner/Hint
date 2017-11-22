@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53A0EDF21FC58A340027F636 /* AutoCompleteTextField in Resources */ = {isa = PBXBuildFile; fileRef = 53A0EDF11FC58A340027F636 /* AutoCompleteTextField */; };
 		E735F3701FB7870500067F86 /* HintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7AF981FADF7330095CF22 /* HintTests.swift */; };
 		E735F3721FB78D9600067F86 /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E735F3711FB78D9600067F86 /* ResultsTableViewController.swift */; };
 		E740583E1FB25FC000056C50 /* APIServiceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740583D1FB25FC000056C50 /* APIServiceExtension.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53A0EDF11FC58A340027F636 /* AutoCompleteTextField */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AutoCompleteTextField; sourceTree = "<group>"; };
 		E735F3711FB78D9600067F86 /* ResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		E740583D1FB25FC000056C50 /* APIServiceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceExtension.swift; sourceTree = "<group>"; };
 		E740583F1FB2615B00056C50 /* TMDBObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBObject.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		E7F992001FBD088F00B76DE3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				53A0EDF11FC58A340027F636 /* AutoCompleteTextField */,
 				E7F991FE1FBD088400B76DE3 /* Helpers.swift */,
 			);
 			path = Helpers;
@@ -322,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A0EDF21FC58A340027F636 /* AutoCompleteTextField in Resources */,
 				E7D7AF8E1FADF7330095CF22 /* LaunchScreen.storyboard in Resources */,
 				E7D7AF8B1FADF7330095CF22 /* Assets.xcassets in Resources */,
 				E7D7AF891FADF7330095CF22 /* Main.storyboard in Resources */,
