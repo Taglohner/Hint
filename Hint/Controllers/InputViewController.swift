@@ -11,24 +11,30 @@ import UIKit
 class InputViewController: UIViewController {
     
     //MARK: Properties
-    
+
     @IBOutlet weak var searchStringTextField: UITextField!
-    
     
     let APIservice = APIService.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIservice.searchMovie(query: "Soldier")
+
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func suggestMeButton(_ sender: Any) {
+        
+        if let text = searchStringTextField.text {
+            APIservice.searchMovie(query: text)
+        } else {
+            print("container is empty")
+        }
         
         performSegue(withIdentifier: "ToResultsViewController", sender: self)
     }
@@ -38,6 +44,7 @@ class InputViewController: UIViewController {
             print("VIEWCONTROLER")
         }
     }
+    
     
     
 }
