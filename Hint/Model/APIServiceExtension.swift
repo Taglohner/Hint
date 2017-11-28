@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension APIService {
     
     // MARK: TMDB - Fetch data and save to the persistent store
@@ -67,7 +66,6 @@ extension APIService {
             }
             
             getImageData(movieCoverURL(size: .Small, posterPath: posterPath)) { (error, data) in
-                print(self.movieCoverURL(size: .Small, posterPath: posterPath))
                 DispatchQueue.main.async {
                     self.saveMovie(title: title, overview: overview, releaseDate: releaseDate, id: id, coverImage: data)
                 }
