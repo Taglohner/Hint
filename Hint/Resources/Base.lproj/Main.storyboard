@@ -57,13 +57,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchStringTextField" destination="Mna-r2-Fdt" id="TP3-v6-xve"/>
+                        <outlet property="searchStringTextField" destination="Mna-r2-Fdt" id="4hl-kj-jYV"/>
                         <segue destination="R2J-fw-gC6" kind="show" identifier="ToResultsViewController" id="phM-W1-uuA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="143"/>
+            <point key="canvasLocation" x="916" y="134"/>
         </scene>
 <<<<<<< HEAD
         <!--Results Table View Controller-->
@@ -140,7 +140,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBl-uW-Bjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="143"/>
+            <point key="canvasLocation" x="2415" y="134"/>
         </scene>
 =======
 >>>>>>> f65f3c933e2bac90ced95f180b8833b99ba9084f
