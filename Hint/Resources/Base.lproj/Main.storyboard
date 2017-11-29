@@ -57,15 +57,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchStringTextField" destination="Mna-r2-Fdt" id="4hl-kj-jYV"/>
+                        <outlet property="searchStringTextField" destination="Mna-r2-Fdt" id="TP3-v6-xve"/>
                         <segue destination="R2J-fw-gC6" kind="show" identifier="ToResultsViewController" id="phM-W1-uuA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="134"/>
+            <point key="canvasLocation" x="897" y="143"/>
         </scene>
-<<<<<<< HEAD
         <!--Results Table View Controller-->
         <scene sceneID="USq-kl-eUY">
             <objects>
@@ -140,10 +139,8 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBl-uW-Bjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2415" y="134"/>
+            <point key="canvasLocation" x="2313" y="143"/>
         </scene>
-=======
->>>>>>> f65f3c933e2bac90ced95f180b8833b99ba9084f
         <!--Results View Controller-->
         <scene sceneID="LHh-s3-rMv">
             <objects>
@@ -155,17 +152,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bbi-84-hqg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="kRR-DG-7bg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="R2J-fw-gC6" id="Ger-WL-FB6"/>
-                                    </connections>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="135" id="T0w-6j-k96" customClass="MovieCell" customModule="Hint" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T0w-6j-k96" id="1ip-GU-3PA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
@@ -244,20 +233,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="H3R-EB-1ci" id="lP9-QN-uX0"/>
                         <outlet property="tableView" destination="bbi-84-hqg" id="g3h-Zg-WJo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebO-Ec-Sip" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="H3R-EB-1ci">
-                    <connections>
-                        <outlet property="delegate" destination="R2J-fw-gC6" id="brH-pg-jdu"/>
-                        <outlet property="searchBar" destination="kRR-DG-7bg" id="vFU-HU-M6i"/>
-                        <outlet property="searchContentsController" destination="R2J-fw-gC6" id="Btc-QF-CGP"/>
-                        <outlet property="searchResultsDataSource" destination="R2J-fw-gC6" id="MiH-o1-QqU"/>
-                        <outlet property="searchResultsDelegate" destination="R2J-fw-gC6" id="Mdf-KP-geV"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1610" y="143"/>
         </scene>
