@@ -27,7 +27,7 @@ extension APIService {
                 print("") //PENDING IMPLEMENTATION
                 return
             }
-            self.validateMoviesAndSave(movies: movies)
+            self.validateMoviesAndSave(movies: movies, relationship: nil)
         }
     }
     
@@ -48,11 +48,11 @@ extension APIService {
                 print("") //PENDING IMPLEMENTATION
                 return
             }
-            self.validateMoviesAndSave(movies: movies)
+            self.validateMoviesAndSave(movies: movies, relationship: movieID)
         }
     }
     
-    func validateMoviesAndSave(movies: [MovieInfo]) {
+    func validateMoviesAndSave(movies: [MovieInfo], relationship: Int?) {
         
         for movie in movies {
             
@@ -67,14 +67,13 @@ extension APIService {
             
             getImageData(movieCoverURL(size: .Small, posterPath: posterPath)) { (error, data) in
                 DispatchQueue.main.async {
-                    self.saveMovie(title: title, overview: overview, releaseDate: releaseDate, id: id, coverImage: data)
+                    self.saveMovie(title: title, overview: overview, releaseDate: releaseDate, id: id, coverImage: data, relationship: relationship ?? 0)
                 }
             }
         }
-        coreDataStack.save()
     }
     
-    func saveMovie(title: String, overview: String, releaseDate: String, id: Int, coverImage: Data?){
+    func saveMovie(title: String, overview: String, releaseDate: String, id: Int, coverImage: Data?, relationship: Int){
         let movie = NSEntityDescription.insertNewObject(forEntityName: "Movie", into: coreDataStack.context) as! Movie
         
         movie.title = title
@@ -82,7 +81,9 @@ extension APIService {
         movie.releaseDate = releaseDate
         movie.id = Int32(id)
         movie.coverImage = coverImage
+        movie.relationship = Int32(relationship)
         
+        coreDataStack.save()
     }
     
     enum ImageSize: String {

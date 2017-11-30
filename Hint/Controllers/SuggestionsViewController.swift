@@ -1,42 +1,41 @@
 
 //
-//  ResultsViewController.swift
+//  SuggestionsViewController.swift
 //  Hint
 //
-//  Created by Steven Taglohner on 16/11/2017.
+//  Created by Steven Taglohner on 29/11/2017.
 //  Copyright © 2017 Steven Taglohner. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class SuggestionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     // MARK: - Properties
     
     let coreDataStack = AppDelegate.stack
+    let APIservice = APIService.sharedInstance()
+    var movieID = 1
+    
     @IBOutlet weak var tableView: UITableView!
-
-    // MARK: LifeCycle
+    
+    //MARK: LifeCycle 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(movieID)
         performFetch()
     }
     
-    // MARK: - NSFecthedResultsController
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Movie")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: true)]
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self
-        return frc
-    }()
-    
     // MARK: - TableViewDataSource
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sectionsCount = fetchedResultsController.sections?.count {
             return sectionsCount
@@ -44,6 +43,20 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return 0
         }
     }
+    
+    // Mark: Helpers
+    
+    
+    // MARK: - NSFecthedResultsController
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Movie")
+        fetchRequest.predicate = NSPredicate(format: "relationship == %@", 0)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: true)]
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        return frc
+    }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let rowsCount = fetchedResultsController.sections?[section].numberOfObjects {
@@ -74,28 +87,6 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 130.0
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        if let selectedMovie = fetchedResultsController.object(at: indexPath) as? Movie {
-            
-            let destinationViewController = self.storyboard!.instantiateViewController(withIdentifier: "SuggestionsViewController") as! SuggestionsViewController
-            
-            destinationViewController.movieID = Int(selectedMovie.id)
-            performSegue(withIdentifier: "toSuggestionsViewController", sender: self)
-            
-        } else {
-            // PRESENT ERROR SCREEN
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSuggestionsViewController" {
-  
-        }
-    }
-    
-
     // MARK: - Fetches
     
     func performFetch(){
@@ -143,25 +134,5 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    
-    // MARK: Helpers
-    
-    func clearData(){
-        do {
-            let context = coreDataStack.context
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Movie")
-            do {
-                guard let objects = try context.fetch(fetchRequest) as? [NSManagedObject] else {
-                    print("Error fetching data to delete.")
-                    return
-                }
-                for object in objects {
-                    context.delete(object)
-                }
-            }
-            catch let error {
-                print("ERROR DELETING : \(error)")
-            }
-        }
-    }
 }
+

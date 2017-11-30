@@ -26,7 +26,6 @@ class InputViewController: UIViewController {
     
     @IBAction func suggestMeButton(_ sender: Any) {
 
-        
         if let text = searchStringTextField.text {
             APIservice.searchMovie(query: text)
         } else {
