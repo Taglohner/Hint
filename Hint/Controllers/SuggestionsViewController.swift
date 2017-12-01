@@ -16,7 +16,7 @@ class SuggestionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     let coreDataStack = AppDelegate.stack
     let APIservice = APIService.sharedInstance()
-    var movieID = 1
+    var id = Int()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,13 +24,13 @@ class SuggestionsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(id)
+        APIservice.getMoviesRecommendations(movieID: id)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        print(movieID)
         performFetch()
     }
     
@@ -44,14 +44,11 @@ class SuggestionsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    // Mark: Helpers
-    
-    
     // MARK: - NSFecthedResultsController
     
     lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Movie")
-        fetchRequest.predicate = NSPredicate(format: "relationship == %@", 0)
+//        fetchRequest.predicate = NSPredicate(format: "relationship = %@", id)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "popularity", ascending: true)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: coreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self

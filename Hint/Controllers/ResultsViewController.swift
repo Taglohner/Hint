@@ -16,7 +16,7 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let coreDataStack = AppDelegate.stack
     @IBOutlet weak var tableView: UITableView!
-
+    var id = Int()
     // MARK: LifeCycle
     
     override func viewDidLoad() {
@@ -75,26 +75,21 @@ class ResultsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         if let selectedMovie = fetchedResultsController.object(at: indexPath) as? Movie {
-            
-            let destinationViewController = self.storyboard!.instantiateViewController(withIdentifier: "SuggestionsViewController") as! SuggestionsViewController
-            
-            destinationViewController.movieID = Int(selectedMovie.id)
+            id = Int(selectedMovie.id)
             performSegue(withIdentifier: "toSuggestionsViewController", sender: self)
-            
         } else {
-            // PRESENT ERROR SCREEN
+            // PRESENT NO RESULTS FOUND SCREEN
         }
     }
+    
+    // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSuggestionsViewController" {
-  
+        if let destinationViewController = segue.destination as? SuggestionsViewController {
+            destinationViewController.id = id
         }
     }
-    
 
     // MARK: - Fetches
     

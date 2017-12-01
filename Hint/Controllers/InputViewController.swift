@@ -31,7 +31,6 @@ class InputViewController: UIViewController {
         } else {
             print("container is empty")
         }
-        
         performSegue(withIdentifier: "ToResultsViewController", sender: self)
     }
     

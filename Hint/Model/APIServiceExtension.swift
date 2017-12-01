@@ -68,6 +68,7 @@ extension APIService {
             getImageData(movieCoverURL(size: .Small, posterPath: posterPath)) { (error, data) in
                 DispatchQueue.main.async {
                     self.saveMovie(title: title, overview: overview, releaseDate: releaseDate, id: id, coverImage: data, relationship: relationship ?? 0)
+                    self.coreDataStack.save()
                 }
             }
         }
@@ -82,8 +83,7 @@ extension APIService {
         movie.id = Int32(id)
         movie.coverImage = coverImage
         movie.relationship = Int32(relationship)
-        
-        coreDataStack.save()
+    
     }
     
     enum ImageSize: String {
